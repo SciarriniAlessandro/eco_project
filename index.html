@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sangraf Italy — Impronta Ecologica & Piano di Riduzione</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    /* ─── RESET & TOKENS ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0d0d0d;
+      --carbon:  #1a1a1a;
+      --graphite:#2e2e2e;
+      --ash:     #4a4a4a;
+      --smoke:   #8a8a8a;
+      --paper:   #f4f1ec;
+      --cream:   #fffdf8;
+      --ember:   #e8480a;
+      --amber:   #f5a623;
+      --green:   #3a7d44;
+      --green-lt:#6abf6e;
+      --blue:    #1a3a5c;
+
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif:   'DM Serif Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --max-w: 980px;
+      --gap: 2.5rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    /* ─── UTILITY ───────────────────────────────────────────── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+    .label {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--smoke);
+    }
+    .tag {
+      display: inline-block;
+      padding: .25rem .75rem;
+      border: 1px solid currentColor;
+      border-radius: 2px;
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .tag-ember  { color: var(--ember); }
+    .tag-green  { color: var(--green); }
+    .tag-blue   { color: var(--blue); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      background: var(--carbon);
+      color: var(--paper);
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 59px,
+          rgba(255,255,255,.03) 59px,
+          rgba(255,255,255,.03) 60px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 59px,
+          rgba(255,255,255,.03) 59px,
+          rgba(255,255,255,.03) 60px
+        );
+    }
+    .hero-inner {
+      position: relative;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-eyebrow span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--smoke); }
+    .hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--graphite); }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      line-height: .95;
+      letter-spacing: .02em;
+      margin-bottom: .5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--ember);
+      display: block;
+    }
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--smoke);
+      max-width: 540px;
+      margin: 1.5rem 0 3rem;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--graphite);
+      padding-top: 1.5rem;
+    }
+    .hero-meta-item .value {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--amber);
+      display: block;
+      line-height: 1;
+    }
+    .hero-meta-item .desc {
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      margin-top: .3rem;
+    }
+
+    /* ─── SECTION BASE ───────────────────────────────────────── */
+    .section { padding: 5rem 0; border-bottom: 1px solid rgba(0,0,0,.08); }
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+    .section-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: var(--ember);
+      line-height: 1;
+      padding-top: .15rem;
+    }
+    .section-title-block .section-label { margin-bottom: .5rem; display: block; }
+    .section-title-block h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      font-weight: 400;
+    }
+
+    /* ─── INTRO SECTION ──────────────────────────────────────── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(0,0,0,.1);
+      border: 1.5px solid rgba(0,0,0,.1);
+    }
+    .intro-card {
+      background: var(--cream);
+      padding: 2rem;
+    }
+    .intro-card h3 {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: .75rem;
+    }
+    .intro-card p { font-size: .95rem; color: var(--ash); }
+    .intro-card.highlight {
+      background: var(--carbon);
+      color: var(--paper);
+      grid-column: span 2;
+    }
+    .intro-card.highlight h3 { color: var(--amber); }
+    .intro-card.highlight p  { color: rgba(255,255,255,.7); }
+
+    /* ─── IMAGE STRIP ────────────────────────────────────────── */
+    .img-strip {
+      display: grid;
+      gap: .75rem;
+      margin: 2.5rem 0;
+    }
+    .img-strip.cols-2 { grid-template-columns: 1fr 1fr; }
+    .img-strip.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .img-strip figure { margin: 0; overflow: hidden; border-radius: 2px; }
+    .img-strip figure img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(.85) contrast(1.05);
+      transition: transform .5s ease, filter .5s ease;
+    }
+    .img-strip figure:hover img { transform: scale(1.04); filter: saturate(1) contrast(1); }
+    .img-strip figcaption {
+      font-size: .68rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      padding: .5rem .25rem 0;
+    }
+
+    /* ─── IMPACT SECTION ─────────────────────────────────────── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(0,0,0,.1);
+      border: 1.5px solid rgba(0,0,0,.1);
+      margin-bottom: 2.5rem;
+    }
+    .impact-card {
+      background: var(--cream);
+      padding: 2rem 1.75rem;
+    }
+    .impact-card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .impact-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: .75rem;
+    }
+    .impact-card p { font-size: .88rem; color: var(--ash); }
+    .impact-stat {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--ember);
+      display: block;
+      margin-top: 1rem;
+      line-height: 1;
+    }
+    .impact-stat small { font-family: var(--font-body); font-size: .75rem; color: var(--smoke); display: block; }
+
+    /* ─── TIMELINE ───────────────────────────────────────────── */
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: .6rem;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--ember), var(--green));
+    }
+    .tl-item { position: relative; margin-bottom: 3rem; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: .35rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 2.5px solid var(--ember);
+    }
+    .tl-item.green .tl-dot { border-color: var(--green); }
+    .tl-date {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--ember);
+      letter-spacing: .04em;
+      margin-bottom: .3rem;
+    }
+    .tl-item.green .tl-date { color: var(--green); }
+    .tl-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    .tl-item p { font-size: .9rem; color: var(--ash); max-width: 640px; }
+    .tl-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--green);
+      color: white;
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem .85rem;
+      border-radius: 2px;
+      margin-top: .75rem;
+    }
+
+    /* ─── PROJECT CARDS ──────────────────────────────────────── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--cream);
+      border: 1.5px solid rgba(0,0,0,.08);
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card-header {
+      background: var(--carbon);
+      color: var(--paper);
+      padding: 1.5rem;
+    }
+    .project-card-header .icon { font-size: 1.8rem; margin-bottom: .75rem; display: block; }
+    .project-card-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .project-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+    .problem-block, .solution-block {
+      padding: 1rem;
+      border-radius: 2px;
+      font-size: .88rem;
+    }
+    .problem-block {
+      background: rgba(232,72,10,.07);
+      border-left: 3px solid var(--ember);
+    }
+    .solution-block {
+      background: rgba(58,125,68,.07);
+      border-left: 3px solid var(--green);
+    }
+    .block-label {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+    .problem-block .block-label { color: var(--ember); }
+    .solution-block .block-label { color: var(--green); }
+    .problem-block p, .solution-block p { color: var(--ash); line-height: 1.6; }
+
+    /* ─── CONCLUSION ─────────────────────────────────────────── */
+    .conclusion { background: var(--carbon); color: var(--paper); padding: 5rem 2rem; }
+    .conclusion-inner { max-width: var(--max-w); margin: 0 auto; }
+    .conclusion h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      line-height: .95;
+      letter-spacing: .03em;
+      margin-bottom: 2.5rem;
+    }
+    .conclusion h2 span { color: var(--green-lt); }
+    .conclusion-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .conclusion-col h3 {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: .75rem;
+    }
+    .conclusion-col p { font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.7; }
+    .conclusion-quote {
+      border-left: 3px solid var(--green-lt);
+      padding-left: 1.5rem;
+      margin: 3rem 0 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: rgba(255,255,255,.85);
+      max-width: 700px;
+      line-height: 1.5;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      color: var(--ash);
+      text-align: center;
+      padding: 2rem;
+      font-size: .75rem;
+      letter-spacing: .06em;
+    }
+    footer strong { color: var(--smoke); }
+
+    /* ─── DIVIDER ─────────────────────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      color: var(--smoke);
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(0,0,0,.1);
+    }
+
+    /* ─── DARK MODE ──────────────────────────────────────────── */
+    html.dark {
+      --paper:    #111110;
+      --cream:    #1e1c1a;
+      --black:    #f0ede8;
+      --ash:      #c8c4be;   /* alzato: era #b0ada8, troppo simile allo sfondo */
+      --smoke:    #8a8680;   /* alzato per leggibilità su scuro */
+      --graphite: #3a3835;
+      --carbon:   #272523;
+      --blue:     #5a9fd4;   /* blu chiaro al posto del blu scuro #1a3a5c */
+      --green:    #4fa058;   /* verde leggermente più luminoso */
+      --green-lt: #7fd484;   /* già chiaro, ok */
+    }
+    html.dark body { background: var(--paper); color: var(--black); }
+
+    /* sezioni e divisori */
+    html.dark .section { border-bottom-color: rgba(255,255,255,.07); }
+    html.dark .divider::before,
+    html.dark .divider::after { background: rgba(255,255,255,.12); }
+
+    /* griglie intro e impact */
+    html.dark .intro-grid,
+    html.dark .impact-grid { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.06); }
+    html.dark .intro-card,
+    html.dark .impact-card { background: var(--cream); }
+    html.dark .intro-card p { color: var(--ash); }
+    html.dark .intro-card h3 { color: var(--ember); }
+    html.dark .intro-card.highlight { background: #0d0c0b; }
+    html.dark .intro-card.highlight p { color: rgba(255,255,255,.65); }
+
+    /* impact cards */
+    html.dark .impact-card p { color: var(--ash); }
+    html.dark .impact-card h3 { color: var(--black); }
+
+    /* timeline */
+    html.dark .tl-dot { background: var(--cream); }
+    html.dark .tl-item p { color: var(--ash); }
+    html.dark .tl-item h3 { color: var(--black); }
+
+    /* tabella */
+    html.dark table tbody tr { background: transparent; }
+    html.dark table tbody tr:nth-child(odd) { background: var(--cream); }
+    html.dark table tbody td { color: var(--ash); border-bottom-color: rgba(255,255,255,.06) !important; }
+    html.dark table thead tr { background: #0d0c0b; }
+    html.dark table thead th { color: var(--black); }
+    /* tag-blue: il blu scuro originale è illeggibile su scuro */
+    html.dark .tag-blue { color: var(--blue); border-color: var(--blue); }
+
+    /* project cards */
+    html.dark .project-card { background: var(--cream); border-color: rgba(255,255,255,.07); }
+    html.dark .project-card-body p { color: var(--ash); }
+    html.dark .problem-block { background: rgba(232,72,10,.14); }
+    html.dark .solution-block { background: rgba(58,125,68,.14); }
+    html.dark .problem-block p,
+    html.dark .solution-block p { color: var(--ash); }
+
+    /* testi inline con color:var(--ash) — già coperti dal override --ash */
+    /* label smoke su sfondo scuro */
+    html.dark .label { color: var(--smoke); }
+
+    /* footer */
+    html.dark footer { background: #0d0c0b; color: var(--smoke); }
+    html.dark footer strong { color: var(--ash); }
+
+    /* transitions globali al cambio tema */
+    *, *::before, *::after {
+      transition: background-color .35s ease, color .2s ease, border-color .35s ease;
+    }
+    /* ma NON sulle immagini */
+    img { transition: transform .5s ease, filter .5s ease !important; }
+
+    /* ─── THEME TOGGLE BUTTON ────────────────────────────────── */
+    #theme-toggle {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 999;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.15);
+      background: rgba(26,26,26,.85);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+      transition: transform .2s ease, box-shadow .2s ease, background .35s ease, border-color .35s ease !important;
+    }
+    #theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,.45);
+    }
+    html.dark #theme-toggle {
+      background: rgba(240,237,232,.12);
+      border-color: rgba(255,255,255,.12);
+    }
+
+    /* ─── SCROLL ANIMATIONS ──────────────────────────────────── */
+    .section, .conclusion, footer {
+      opacity: 0;
+      transform: translateX(60px);
+      transition:
+        opacity .65s cubic-bezier(.22,.68,0,1.2),
+        transform .65s cubic-bezier(.22,.68,0,1.2);
+      will-change: opacity, transform;
+    }
+    .hero { opacity: 1; transform: none; }
+
+    .section.is-visible, .conclusion.is-visible, footer.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .section.is-past, .conclusion.is-past, footer.is-past {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition:
+        opacity .45s cubic-bezier(.4,0,1,1),
+        transform .45s cubic-bezier(.4,0,1,1);
+    }
+
+    .intro-card, .impact-card, .project-card, .conclusion-col, .tl-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .section.is-visible .intro-card,
+    .section.is-visible .impact-card,
+    .section.is-visible .project-card,
+    .conclusion.is-visible .conclusion-col,
+    .section.is-visible .tl-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .intro-card:nth-child(1), .impact-card:nth-child(1), .project-card:nth-child(1),
+    .conclusion-col:nth-child(1), .tl-item:nth-child(1) { transition-delay: .1s; }
+    .intro-card:nth-child(2), .impact-card:nth-child(2), .project-card:nth-child(2),
+    .conclusion-col:nth-child(2), .tl-item:nth-child(2) { transition-delay: .22s; }
+    .intro-card:nth-child(3), .impact-card:nth-child(3), .project-card:nth-child(3),
+    .conclusion-col:nth-child(3), .tl-item:nth-child(3) { transition-delay: .34s; }
+    .intro-card:nth-child(4), .tl-item:nth-child(4)     { transition-delay: .46s; }
+
+    .section.is-past .intro-card,
+    .section.is-past .impact-card,
+    .section.is-past .project-card,
+    .conclusion.is-past .conclusion-col,
+    .section.is-past .tl-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition-delay: 0s;
+    }
+
+    /* ─── THEME FLASH OVERLAY ────────────────────────────────── */
+    #theme-flash {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      pointer-events: none;
+      opacity: 0;
+      background: var(--paper);
+      transition: opacity .18s ease;
+    }
+    #theme-flash.flash-in { opacity: .6; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .intro-grid, .impact-grid, .project-grid, .conclusion-cols {
+        grid-template-columns: 1fr;
+      }
+      .intro-card.highlight { grid-column: span 1; }
+      .img-strip.cols-2, .img-strip.cols-3 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 3.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .section, .conclusion, footer,
+      .intro-card, .impact-card, .project-card, .conclusion-col, .tl-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════ THEME TOGGLE -->
+<button id="theme-toggle" aria-label="Cambia tema" title="Cambia tema chiaro/scuro">🌙</button>
+<div id="theme-flash"></div>
+
+<!-- ══════════════════════════════════════════════════════════ HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span>Analisi Impronta Ecologica · Narni, Umbria · 2024</span>
+    </div>
+    <h1>Sangraf<em>Italy</em></h1>
+    <p class="hero-sub">
+      Dalla grafite all'eccellenza verde: il percorso di un'industria pesante verso la neutralità carbonica.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="value">1</span>
+        <span class="desc">Unico produttore di elettrodi<br>di grafite in Italia</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="value">3100 °C</span>
+        <span class="desc">Temperatura raggiunta<br>nei forni di grafitizzazione</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="value">−30%</span>
+        <span class="desc">Obiettivo di riduzione<br>CO₂ con il piano 2024</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="value">7,4M€</span>
+        <span class="desc">Fondi PNRR intercettati<br>per idrogeno verde</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════ 01 INTRODUZIONE -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <div class="section-title-block">
+        <span class="section-label label">Chi sono</span>
+        <h2>Introduzione all'azienda</h2>
+      </div>
+    </div>
+
+    <div class="intro-grid">
+      <div class="intro-card">
+        <h3>Nome &amp; Gruppo</h3>
+        <p>Sangraf Italy S.r.l. fa parte del <strong>Gruppo Sanergy</strong> ed è una realtà industriale di primo piano nel panorama metallurgico europeo. Ha rilevato nel 2017 lo storico sito produttivo di Narni, rilanciandolo come polo d'eccellenza.</p>
+      </div>
+      <div class="intro-card">
+        <h3>Localizzazione</h3>
+        <p>Lo stabilimento ha sede a <strong>Narni Scalo</strong>, in provincia di Terni, all'interno di un distretto industriale storico. La sua posizione nel cuore dell'Umbria la rende punto di riferimento per l'economia del territorio ternano-narnese.</p>
+      </div>
+      <div class="intro-card">
+        <h3>Settore Hard-to-Abate</h3>
+        <p>L'azienda produce <strong>elettrodi di grafite ad altissima potenza (UHP)</strong>, componenti indispensabili per i forni ad arco elettrico (EAF), la tecnologia più pulita disponibile per la fusione dell'acciaio su scala industriale.</p>
+      </div>
+      <div class="intro-card highlight">
+        <h3>Peculiarità: Progetto Sanode</h3>
+        <p>Sangraf Italy è l'<strong>unico produttore italiano</strong> di elettrodi di grafite e uno dei pochi rimasti in Europa. È inoltre impegnata nel progetto innovativo <strong>"Sanode"</strong> per la produzione di grafite sintetica destinata agli anodi delle batterie al litio, posizionandosi come attore chiave nella filiera della mobilità elettrica.</p>
+      </div>
+    </div>
+
+    <div class="img-strip cols-2">
+      <figure>
+        <img src="src="img/fotovoltaico.jpg"" alt="Forno di grafitizzazione industriale" loading="lazy"/>
+        <figcaption>Forno di grafitizzazione — la tecnologia core dello stabilimento</figcaption>
+      </figure>
+      <figure>
+        <img src="src="img/acheson_furnace.jpg"" alt="Forno ad arco elettrico EAF" loading="lazy"/>
+        <figcaption>Forno ad arco elettrico (EAF) — utilizzo finale degli elettrodi UHP</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ 02 IMPRONTA ECOLOGICA -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <div class="section-title-block">
+        <span class="section-label label">Analisi ambientale</span>
+        <h2>L'impronta ecologica di Sangraf</h2>
+      </div>
+    </div>
+
+    <p style="max-width:680px; color:var(--ash); margin-bottom:2.5rem;">
+      L'impronta ecologica di Sangraf è strettamente legata al processo di <strong>grafitizzazione</strong>: il riscaldamento di materiali carboniosi fino a 3 100 °C trasforma il carbonio amorfo in una struttura cristallina ordinata, ma comporta una sfida energetica e ambientale significativa.
+    </p>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <span class="icon">⚡</span>
+        <h3>Consumo di energia elettrica</h3>
+        <p>I forni Acheson e LWG sono macchinari ad altissima intensità elettrica. Il consumo specifico per unità di prodotto varia tra 7 500 e 12 000 kWh per tonnellata di grafite.</p>
+        <span class="impact-stat">12 000<small>kWh / tonnellata (picco)</small></span>
+      </div>
+      <div class="impact-card">
+        <span class="icon">🏭</span>
+        <h3>Emissioni dirette di CO₂</h3>
+        <p>I forni di cottura a gas naturale generano emissioni dirette di CO₂. La combustione del metano è necessaria per i cicli termici di preparazione degli elettrodi prima della grafitizzazione finale.</p>
+        <span class="impact-stat" style="color:var(--ash)">Scope 1<small>emissioni dirette da combustione</small></span>
+      </div>
+      <div class="impact-card">
+        <span class="icon">🌫️</span>
+        <h3>Polveri sottili di grafite</h3>
+        <p>Le fasi di lavorazione meccanica (tornitura, fresatura) generano polveri sottili. Se non gestite, impattano sulla qualità dell'aria locale e rappresentano una perdita di materia prima preziosa.</p>
+        <span class="impact-stat" style="color:var(--smoke)">PM<small>particolato fine da lavorazione</small></span>
+      </div>
+    </div>
+
+    <div class="divider">Tipologia di impatto per vettore</div>
+
+    <table style="width:100%; border-collapse:collapse; font-size:.88rem;">
+      <thead>
+        <tr style="background:var(--carbon); color:var(--paper);">
+          <th style="padding:.85rem 1rem; text-align:left; font-weight:500; letter-spacing:.06em;">Vettore</th>
+          <th style="padding:.85rem 1rem; text-align:left; font-weight:500; letter-spacing:.06em;">Fonte</th>
+          <th style="padding:.85rem 1rem; text-align:left; font-weight:500; letter-spacing:.06em;">Scope GHG</th>
+          <th style="padding:.85rem 1rem; text-align:left; font-weight:500; letter-spacing:.06em;">Criticità</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:var(--cream);">
+          <td style="padding:.75rem 1rem; border-bottom:1px solid rgba(0,0,0,.06);">Energia elettrica</td>
+          <td style="padding:.75rem 1rem; border-bottom:1px solid rgba(0,0,0,.06);">Forni Acheson / LWG</td>
+          <td style="padding:.75rem 1rem; border-bottom:1px solid rgba(0,0,0,.06);"><span class="tag tag-blue">Scope 2</span></td>
+          <td style="padding:.75rem 1rem; border-bottom:1px solid rgba(0,0,0,.06); color:var(--ember);">●●● Alta</td>
+        </tr>
+        <tr>
+          <td style="padding:.75rem 1rem; border-bottom:1px solid rgba(0,0,0,.06);">Gas naturale</td>
+          <td style="padding:.75rem 1rem; border-bottom:1px solid rgba(0,0,0,.06);">Forni di cottura</td>
+          <td style="padding:.75rem 1rem; border-bottom:1px solid rgba(0,0,0,.06);"><span class="tag tag-ember">Scope 1</span></td>
+          <td style="padding:.75rem 1rem; border-bottom:1px solid rgba(0,0,0,.06); color:var(--ember);">●●● Alta</td>
+        </tr>
+        <tr style="background:var(--cream);">
+          <td style="padding:.75rem 1rem;">Polveri di grafite</td>
+          <td style="padding:.75rem 1rem;">Lavorazione meccanica</td>
+          <td style="padding:.75rem 1rem;"><span class="tag tag-ember">Scope 1</span></td>
+          <td style="padding:.75rem 1rem; color:var(--amber);">●● Media</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ 03 VIAGGIO -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <div class="section-title-block">
+        <span class="section-label label">Azioni già intraprese</span>
+        <h2>Il viaggio verso la sostenibilità</h2>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Maggio 2020</div>
+          <h3>Rivoluzione LED</h3>
+          <p>Sostituzione di oltre <strong>1 000 punti luce</strong> tradizionali con moderni corpi illuminanti LED. Risparmio netto di <strong>433 000 kWh/anno</strong>, pari all'eliminazione di <strong>152 t di CO₂</strong> annue — il primo passo tangibile verso la decarbonizzazione.</p>
+          <span class="tl-badge">−152 t CO₂ / anno</span>
+        </div>
+
+        <div class="tl-item green">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Inizio 2024</div>
+          <h3>Impianto fotovoltaico da 1 340 kWp</h3>
+          <p>Entrata in funzione del sistema solare sui tetti dello stabilimento. Produce <strong>1 580 400 kWh/anno</strong> di energia pulita destinata all'autoconsumo industriale, con una riduzione di <strong>840 t di CO₂</strong> l'anno — un progresso del <strong>+400%</strong> rispetto al 2020.</p>
+          <span class="tl-badge">−840 t CO₂ / anno</span>
+        </div>
+
+        <div class="tl-item green">
+          <div class="tl-dot" style="border-color:var(--blue)"></div>
+          <div class="tl-date" style="color:var(--blue)">Certificazioni</div>
+          <h3>ISO 14001:2015 &amp; EPD</h3>
+          <p>L'impegno ambientale è convalidato da certificazioni di terze parti: la <strong>ISO 14001</strong> per il sistema di gestione ambientale e la <strong>EPD (Dichiarazione Ambientale di Prodotto)</strong>, che garantisce trasparenza sui dati di impatto dei prodotti.</p>
+          <span class="tl-badge" style="background:var(--blue)">Certificato</span>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="img-strip" style="margin:0;">
+          <figure>
+            <img src="src="img/eaf_furnace.jpg"" alt="Impianto fotovoltaico industriale sui tetti" loading="lazy"/>
+            <figcaption>Impianto fotovoltaico su copertura industriale — simile a quello installato da Sangraf</figcaption>
+          </figure>
+        </div>
+        <div style="background:var(--carbon); color:var(--black); padding:2rem; margin-top:.75rem; border-radius:2px;">
+          <span class="label" style="color:var(--amber); display:block; margin-bottom:1rem;">Confronto impatto cumulato</span>
+          <div style="display:flex; flex-direction:column; gap:.75rem;">
+            <div>
+              <div style="display:flex; justify-content:space-between; margin-bottom:.3rem;">
+                <span style="font-size:.82rem; color:var(--ash);">2020 — LED</span>
+                <span style="font-size:.82rem; color:var(--amber);">152 t CO₂/anno</span>
+              </div>
+              <div style="background:var(--graphite); border-radius:2px; height:8px;">
+                <div style="width:15%; background:var(--amber); height:8px; border-radius:2px;"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; margin-bottom:.3rem;">
+                <span style="font-size:.82rem; color:var(--ash);">2024 — Fotovoltaico</span>
+                <span style="font-size:.82rem; color:var(--green-lt);">840 t CO₂/anno</span>
+              </div>
+              <div style="background:var(--graphite); border-radius:2px; height:8px;">
+                <div style="width:82%; background:var(--green-lt); height:8px; border-radius:2px;"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; margin-bottom:.3rem;">
+                <span style="font-size:.82rem; color:var(--ash);">Obiettivo — Piano 2024+</span>
+                <span style="font-size:.82rem; color:var(--ember);">+30% residuo</span>
+              </div>
+              <div style="background:var(--graphite); border-radius:2px; height:8px;">
+                <div style="width:100%; background:var(--ember); height:8px; border-radius:2px; opacity:.6;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ 04 PROGETTO -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <div class="section-title-block">
+        <span class="section-label label">Piano d'azione</span>
+        <h2>Il progetto di riduzione dell'impronta</h2>
+      </div>
+    </div>
+
+    <p style="max-width:680px; color:var(--ash); margin-bottom:2.5rem;">
+      Tre assi strategici compongono il piano: il recupero del calore di scarto, la decarbonizzazione dei combustibili e la circolarità delle materie. Insieme puntano a ridurre l'impronta residua di un ulteriore <strong>30%</strong>.
+    </p>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="icon">🌡️</span>
+          <h3>Recupero energetico dal calore di scarto</h3>
+        </div>
+        <div class="project-card-body">
+          <div class="problem-block">
+            <div class="block-label">Problema</div>
+            <p>L'enorme quantità di energia termica sprigionata dai forni a 3 000 °C viene in gran parte dissipata nell'ambiente durante le fasi di raffreddamento, che possono durare diversi giorni.</p>
+          </div>
+          <div class="solution-block">
+            <div class="block-label">Soluzione</div>
+            <p>Installazione di <strong>scambiatori di calore fumi-aria</strong> per catturare l'energia residua. Il calore sarà reintrodotto nel ciclo per il preriscaldamento dei forni di cottura o per il teleriscaldamento degli uffici.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="icon">💧</span>
+          <h3>Decarbonizzazione dei combustibili</h3>
+        </div>
+        <div class="project-card-body">
+          <div class="problem-block">
+            <div class="block-label">Problema</div>
+            <p>La fase di cottura degli elettrodi dipende ancora dal <strong>gas metano</strong>, una fonte fossile che genera emissioni ineliminabili con i bruciatori tradizionali.</p>
+          </div>
+          <div class="solution-block">
+            <div class="block-label">Soluzione</div>
+            <p>Conversione dei bruciatori in sistemi <strong>Hydrogen-Ready</strong>, capaci di utilizzare idrogeno verde prodotto tramite elettrolisi, sfruttando i <strong>7,4 M€ di fondi PNRR</strong> già intercettati per la ricerca sull'idrogeno a Narni.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="icon">♻️</span>
+          <h3>Circolarità della materia</h3>
+        </div>
+        <div class="project-card-body">
+          <div class="problem-block">
+            <div class="block-label">Problema</div>
+            <p>Le lavorazioni meccaniche e gli sfridi di produzione generano ogni anno tonnellate di <strong>residui grafitici</strong> che, se non recuperati, confluiscono nel flusso dei rifiuti industriali.</p>
+          </div>
+          <div class="solution-block">
+            <div class="block-label">Soluzione</div>
+            <p>Centro di recupero interno per la <strong>polverizzazione e ri-mattonellazione</strong> degli scarti. La grafite riciclata viene reimmessa nel mix di materie prime, chiudendo il ciclo secondo i principi della simbiosi industriale.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="img-strip cols-2" style="margin-top:2rem;">
+      <figure>
+        <img src="src="img/h2_green.jpg"" alt="Produzione idrogeno verde tramite elettrolisi" loading="lazy"/>
+        <figcaption>Elettrolisi per la produzione di idrogeno verde — base della soluzione Hydrogen-Ready</figcaption>
+      </figure>
+      <figure>
+        <img src="src="img/h2_tanks.jpg"" alt="Impianto industriale produzione idrogeno" loading="lazy"/>
+        <figcaption>Impianti di produzione idrogeno industriale a emissioni zero</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ 05 CONCLUSIONI -->
+<section class="conclusion">
+  <div class="conclusion-inner">
+    <span class="label" style="color:var(--smoke); display:block; margin-bottom:1.5rem;">Conclusioni &amp; Visione</span>
+    <h2>Verso la<br><span>Carbon Neutrality</span><br>entro un decennio</h2>
+
+    <div class="conclusion-cols">
+      <div class="conclusion-col">
+        <h3>Impatto finale stimato</h3>
+        <p>L'implementazione sinergica degli interventi mira a ridurre l'impronta di carbonio residua di un ulteriore <strong>30%</strong>, proiettando Sangraf Italy verso la Carbon Neutrality entro il prossimo decennio.</p>
+      </div>
+      <div class="conclusion-col">
+        <h3>Beneficio territoriale</h3>
+        <p>Riducendo emissioni e consumi, Sangraf rafforza il distretto TURN, contribuendo alla rigenerazione di Terni e Narni. Un'industria più pulita garantisce un territorio più salubre e maggiore competitività per l'intero indotto siderurgico umbro.</p>
+      </div>
+      <div class="conclusion-col">
+        <h3>Posizionamento strategico</h3>
+        <p>Con il progetto Sanode per le batterie al litio e i fondi PNRR per l'idrogeno verde, Sangraf non è solo un produttore di elettrodi: è un attore chiave nella transizione energetica europea.</p>
+      </div>
+    </div>
+
+    <blockquote class="conclusion-quote">
+      "La sostenibilità non è un limite, ma il motore di una nuova era industriale. A Narni, il futuro è già iniziato."
+    </blockquote>
+  </div>
+</section>
+
+<footer>
+  <strong>Sangraf Italy S.r.l.</strong> — Narni Scalo (TR) · Gruppo Sanergy ·
+  Documento elaborato a scopo didattico
+</footer>
+<script>
+  /* ── THEME TOGGLE con flash overlay ── */
+  const btn   = document.getElementById('theme-toggle');
+  const root  = document.documentElement;
+  const flash = document.getElementById('theme-flash');
+
+  const saved      = localStorage.getItem('sangraf-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = saved ? saved === 'dark' : prefersDark;
+  if (isDark) { root.classList.add('dark'); btn.textContent = '☀️'; }
+
+  btn.addEventListener('click', () => {
+    // 1. flash in (mezzo secondo di velo)
+    flash.classList.add('flash-in');
+    setTimeout(() => {
+      // 2. cambia tema a metà del flash — l'utente non vede il "salto"
+      const dark = root.classList.toggle('dark');
+      btn.textContent = dark ? '☀️' : '🌙';
+      localStorage.setItem('sangraf-theme', dark ? 'dark' : 'light');
+      // 3. flash out
+      flash.classList.remove('flash-in');
+    }, 160);
+  });
+
+  /* ── SCROLL ANIMATIONS con IntersectionObserver ── */
+  const animTargets = document.querySelectorAll('.section, .conclusion, footer');
+
+  // soglia: l'elemento è "visibile" quando almeno il 12% è in viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const el = entry.target;
+      if (entry.isIntersecting) {
+        el.classList.add('is-visible');
+        el.classList.remove('is-past');
+      } else {
+        // capisce se l'elemento è sopra o sotto la viewport
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < 0) {
+          // è uscito in alto → è "passato"
+          el.classList.add('is-past');
+          el.classList.remove('is-visible');
+        } else {
+          // è ancora sotto → torna allo stato iniziale (da destra)
+          el.classList.remove('is-visible');
+          el.classList.remove('is-past');
+        }
+      }
+    });
+  }, { threshold: 0.12 });
+
+  animTargets.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
